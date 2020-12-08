@@ -1,16 +1,15 @@
 - name: Create Homework Assignment project
-  tower_project:
-    name: "{{ proj_name }}"
-    description: "Three Tier Application for Homework"
-    organization: Default 
-    state: present
-    tower_config_file: "~/.tower_cli.cfg"
-    scm_type: "git"
-    scm_url: "{{ scm_url }}"
-    scm_branch: "{{ scm_branch }}"
-    validate_certs: no
-#  command: |
-#          tower-cli project create --name "3 tier App" --organization "Default" --description "Three Tier Application for Homework" --scm-type "Git" --scim-url ""
+#  tower_project:
+#    name: "{{ proj_name }}"
+#    description: "Three Tier Application for Homework"
+#    organization: Default 
+#    state: present
+#    tower_config_file: "~/.tower_cli.cfg"
+#    scm_type: "git"
+#    scm_url: "{{ scm_url }}"
+#    scm_branch: "{{ scm_branch }}"
+  command: |
+    tower-cli project create --name "{{ proj_name }}" --organization "{{ org_name }}" --description "Three Tier Application for Homework" --scm-type "git" --scm-url "{{ scm_url }}" --scm-branch "{{ scm_branch }}" 
 
 
 - name: Machine Credential to connect to workstation using openstack.pub
