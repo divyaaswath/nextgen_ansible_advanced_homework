@@ -1,0 +1,11 @@
+---
+- name: Install postgres sql server
+  yum:
+    name: "{{ db_server }}" 
+    state: latest
+
+- name: start and enable postgres
+  service:
+    name: "{{ db_server_name }}"
+    enabled: yes
+    state: started

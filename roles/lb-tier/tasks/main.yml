@@ -1,3 +1,19 @@
 ---
+- name: install haproxy
+  yum:
+    name: "{{ payload }}"
+    state: latest
 
+- name: start and enable haproxy at reboot
+  service:
+    name: "{{ payload }}"
+    state: started
+    enabled: yes
+
+- name: copy haproxy config
+  template:
+    src: haproxy.cfg.j2
+    dest: /etc/haproxy/haproxy.cfg
+    mode: 0644
+    notify: restart "{{ payload }}"
 
