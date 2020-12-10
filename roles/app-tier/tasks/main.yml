@@ -4,6 +4,11 @@
     name: "{{ payload }}"
     state: latest
 
+- name: start app server
+  service:
+    name: "{{ payload }}"
+    enabled: yes
+
 - name: create tomcat default web directory
   file:
     path: "{{ tomcat_web_root }}"
@@ -17,5 +22,5 @@
 - name: start app server
   service:
     name: "{{ payload }}"
-    state: started
+    state: restarted
     enabled: yes
