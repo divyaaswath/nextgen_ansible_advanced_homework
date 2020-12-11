@@ -11,4 +11,4 @@
       name: "{{ item.name }}"
       state: absent
       delete_fip: true
-    loop: "{{ openstack_servers }}" 
+    loop: "{{ openstack_servers.openstack_servers }}" 
